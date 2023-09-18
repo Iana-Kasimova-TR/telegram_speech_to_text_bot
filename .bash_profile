@@ -1,0 +1,1 @@
+/Users/Iana_Kasimova/Library/Caches/pypoetry/virtualenvs/bot-voice-msg-YhYe7IUT-py3.10/lib/python3.10/site-packages/ffmpeg-6.0
