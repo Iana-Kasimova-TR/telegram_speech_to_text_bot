@@ -1,8 +1,11 @@
 import os
+import ssl
 
 import torch
 import yaml
 from torch import package
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # upload model config
 torch.hub.download_url_to_file(

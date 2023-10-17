@@ -6,18 +6,23 @@ import nltk
 import numpy as np
 import torch
 from datasets import load_dataset
-from transformers import Wav2Vec2ForCTC, Wav2Vec2ProcessorWithLM, Wav2Vec2Tokenizer
+from transformers import Wav2Vec2ForCTC, Wav2Vec2ProcessorWithLM
 
 MODEL_ID = "bond005/wav2vec2-large-ru-golos-with-lm"
-DATASET_ID = "bond005/sberdevices_golos_10h_crowd"
 
 
 # nltk.download("punkt")
 
 num_processes = max(1, os.cpu_count())
 
-processor = Wav2Vec2ProcessorWithLM.from_pretrained(MODEL_ID)
-model = Wav2Vec2ForCTC.from_pretrained(MODEL_ID)
+#for LOCAL
+#processor = Wav2Vec2ProcessorWithLM.from_pretrained(MODEL_ID)
+#model = Wav2Vec2ForCTC.from_pretrained(MODEL_ID)
+
+
+# REMOTE
+model = Wav2Vec2ForCTC.from_pretrained('/root/.cache/torch/transformers/bond005/wav2vec2-large-ru-golos-with-lm')
+processor = Wav2Vec2ProcessorWithLM.from_pretrained('/root/.cache/torch/transformers/bond005/wav2vec2-large-ru-golos-with-lm')
 
 
 def get_text(path: str):
